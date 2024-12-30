@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  your-app:
+    build: .
+    image: myoccident:${BUILD_NUMBER}
+    container_name: myoccident
+    restart: always
+    ports:
+      - "3002:3002"  # Adjust ports as needed
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    external: true  # Use the existing network from your main docker-compose
